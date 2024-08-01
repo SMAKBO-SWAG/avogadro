@@ -2,6 +2,7 @@ interface Order {
   name: string;
   number: string;
   paymentMethod: string;
+  totalPrice: number;
   orders: Product[];
 }
 

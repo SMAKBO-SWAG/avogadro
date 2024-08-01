@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { PaymentService } from './payment.service';
+import { Order } from 'src/interfaces/orders.interface';
 
 @Controller('/payment')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
-  @Get()
-  getHello(): string {
-    return this.paymentService.getHello();
+  @Post()
+  getToken(@Body() order: Order) {
+    return this.paymentService.getToken(order);
   }
 }
