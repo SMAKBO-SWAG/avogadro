@@ -1,13 +1,22 @@
 import { Injectable } from '@nestjs/common';
+import { DatabaseService } from 'src/database/database.service';
 
-const suggestions: string[][] = [];
 @Injectable()
 export class SuggestionService {
-  inputSuggestion(suggestion: string[]): string[] {
-    suggestions.push(suggestion);
+  constructor(private databaseService: DatabaseService) {}
+
+  supabase = this.databaseService.getClient();
+
+  async inputSuggestion(suggestion: string[]) {
+    const { data, error } = await this.supabase.from('suggestions').insert({suggestion});
+
     return suggestion;
   }
-  getAllSuggestion(): string[][] {
-    return suggestions;
+
+  async getAllSuggestion() {
+
+    const { data, error } = await this.supabase.from('suggestions').select('*');
+
+    return data;
   }
 }

@@ -6,13 +6,12 @@ export class SuggestionController {
   constructor(private readonly suggestionService: SuggestionService) {}
 
   @Post()
-  inputSuggestion(@Body() suggestion: string[]): string[] {
-    console.log(suggestion);
+  inputSuggestion(@Body() suggestion: string[]) {
     return this.suggestionService.inputSuggestion(suggestion);
   }
 
   @Get()
-  getAllSuggestion(): string[][] {
+  getAllSuggestion() {
     return this.suggestionService.getAllSuggestion();
   }
 }
