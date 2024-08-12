@@ -7,6 +7,7 @@ import { PaymentModule } from './api/payment/payment.module';
 import { DatabaseModule } from './database/database.module';
 import { SuggestionModule } from './api/suggestion/suggestion.module';
 import { OngkirModule } from './api/ongkir/ongkir.module';
+import { WhatsAppModule } from './api/whatsapp/whatsapp.module';
 
 import { ConfigModule } from '@nestjs/config';
 
@@ -19,7 +20,8 @@ import { ConfigModule } from '@nestjs/config';
     OrdersModule,
     PaymentModule,
     SuggestionModule,
-    OngkirModule
+    OngkirModule,
+    WhatsAppModule
   ],
   controllers: [AppController],
   providers: [AppService],
