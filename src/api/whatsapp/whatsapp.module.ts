@@ -5,6 +5,6 @@ import { WhatsAppService } from './whatsapp.service';
 
 @Module({
   providers: [WhatsAppService],
-  exports: [WhatsAppService], // Export the service so it can be used in other modules
+  exports: [WhatsAppService],
 })
 export class WhatsAppModule {}
