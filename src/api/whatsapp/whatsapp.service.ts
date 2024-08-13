@@ -31,7 +31,10 @@ export class WhatsAppService implements OnModuleInit {
 
   sendMessage(number: string, message: string): void {
     const chatId = `${number}@c.us`;
-    this.client.sendMessage(chatId, message);
+    this.client.initialize().then(() => {
+        this.client.sendMessage(chatId, message)
+            .then(response => console.log('Message sent', response))
+            .catch(error => console.error('Send message error:', error));
+    });
   }
-
 }
