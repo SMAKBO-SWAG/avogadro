@@ -19,29 +19,31 @@ export class OrdersService {
       return error;
     }
 
-    const createWhatsAppMessage = (payload : Order) => {
-      let orderDetails = payload.orders
-        .map((order : Product, index : number) => {
-          return `${index + 1}. ${order.name} (${order.type}), Qty: ${order.amount}, Harga: Rp${order.price.toLocaleString('id-ID')}`;
-        })
-        .join('\n');
+    console.log(order)
 
-      let productPrice = payload.totalPrice - payload.ongkir;
+    // const createWhatsAppMessage = (payload : Order) => {
+    //   let orderDetails = payload.orders
+    //     .map((order : Product, index : number) => {
+    //       return `${index + 1}. ${order.name} (${order.type}), Qty: ${order.amount}, Harga: Rp${order.price.toLocaleString('id-ID')}`;
+    //     })
+    //     .join('\n');
 
-      let deliveryInfo = '';
-      if (payload.paymentMethod === 'ship') {
-        deliveryInfo = `Total Harga Produk: Rp${productPrice.toLocaleString('id-ID')}\nOngkir: Rp${payload.ongkir.toLocaleString('id-ID')}\n\n🚚 Alamat Pengiriman: ${payload.address}\n\nPesanan kamu bakal segera dikirim setelah masa pre-order dan proses produksi selesai, ya. Stay tuned!`;
-      } else {
-        deliveryInfo = `📍 Pickup di SMAKBO: Merch bisa langsung diambil di SMAKBO setelah masa pre-order dan proses produksi selesai, ya. Stay tuned!`;
-      }
+    //   let productPrice = payload.totalPrice - payload.ongkir;
 
-      return `Hai ${payload.name},\n\nThank you for copping the coolest merch from SMAKBO SWAG! 😎\n\nIni dia detail pesanan kamu:\n\n${orderDetails}\n\n💸 Total Harga: Rp${payload.totalPrice.toLocaleString('id-ID')}\nMetode Pembayaran: ${payload.paymentMethod}\n\n${deliveryInfo}\n\n🔥 Jangan lupa buat pantengin IG kita di @SMAKBO.SWAG biar nggak ketinggalan update selanjutnya!\n\nPeace out,\nSMAKBO SWAG`;
-    };
+    //   let deliveryInfo = '';
+    //   if (payload.paymentMethod === 'ship') {
+    //     deliveryInfo = `Total Harga Produk: Rp${productPrice.toLocaleString('id-ID')}\nOngkir: Rp${payload.ongkir.toLocaleString('id-ID')}\n\n🚚 Alamat Pengiriman: ${payload.address}\n\nPesanan kamu bakal segera dikirim setelah masa pre-order dan proses produksi selesai, ya. Stay tuned!`;
+    //   } else {
+    //     deliveryInfo = `📍 Pickup di SMAKBO: Merch bisa langsung diambil di SMAKBO setelah masa pre-order dan proses produksi selesai, ya. Stay tuned!`;
+    //   }
 
-    const number = '62' + order.number.slice(1);
-    const message = createWhatsAppMessage(order);
+    //   return `Hai ${payload.name},\n\nThank you for copping the coolest merch from SMAKBO SWAG! 😎\n\nIni dia detail pesanan kamu:\n\n${orderDetails}\n\n💸 Total Harga: Rp${payload.totalPrice.toLocaleString('id-ID')}\nMetode Pembayaran: ${payload.paymentMethod}\n\n${deliveryInfo}\n\n🔥 Jangan lupa buat pantengin IG kita di @SMAKBO.SWAG biar nggak ketinggalan update selanjutnya!\n\nPeace out,\nSMAKBO SWAG`;
+    // };
 
-    this.whatsappService.sendMessage(number, message);
+    // const number = '62' + order.number.slice(1);
+    // const message = createWhatsAppMessage(order);
+
+    // this.whatsappService.sendMessage(number, message);
 
     return order;
   }
