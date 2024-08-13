@@ -10,6 +10,7 @@ import { OngkirModule } from './api/ongkir/ongkir.module';
 import { WhatsAppModule } from './api/whatsapp/whatsapp.module';
 
 import { ConfigModule } from '@nestjs/config';
+import { WhatsAppService } from './api/whatsapp/whatsapp.service';
 
 @Module({
   imports: [
@@ -24,6 +25,6 @@ import { ConfigModule } from '@nestjs/config';
     WhatsAppModule
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, WhatsAppService],
 })
 export class AppModule {}
