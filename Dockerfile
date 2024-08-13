@@ -18,15 +18,13 @@ ENV PORT=$PORT
 ENV ONGKIR_URL=$ONGKIR_URL
 ENV ONGKIR_API_KEY=$ONGKIR_API_KEY
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update \
+    && apt-get install -y \
     chromium \
-    nss \
-    freetype2-demos \
-    libx11-dev \
+    libnss3 \
     libx11-xcb-dev \
     libgbm-dev \
     libatk1.0-0 \
-    libnss3 \
     libxss1 \
     libasound2 \
     libatk-bridge2.0-0 \
@@ -34,8 +32,8 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     xauth \
     xvfb \
-    --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
