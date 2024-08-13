@@ -30,8 +30,8 @@ jobs:
             --build-arg MIDTRANS_SERVER_KEY=${{ secrets.MIDTRANS_SERVER_KEY }} \
             --build-arg SUPABASE_URL=${{ secrets.SUPABASE_URL }} \
             --build-arg SUPABASE_API_KEY=${{ secrets.SUPABASE_API_KEY }} \
-            --build-arg SUPABASE_API_KEY=${{ secrets.ONGKIR_URL }} \
-            --build-arg SUPABASE_API_KEY=${{ secrets.ONGKIR_API_KEY }} \
+            --build-arg ONGKIR_URL=${{ secrets.ONGKIR_URL }} \
+            --build-arg ONGKIR_API_KEY=${{ secrets.ONGKIR_API_KEY }} \
             -t "${{ secrets.DOCKER_USERNAME }}/avogadro-app:latest" \
             --push .
 
