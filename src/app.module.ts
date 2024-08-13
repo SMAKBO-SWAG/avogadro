@@ -7,10 +7,8 @@ import { PaymentModule } from './api/payment/payment.module';
 import { DatabaseModule } from './database/database.module';
 import { SuggestionModule } from './api/suggestion/suggestion.module';
 import { OngkirModule } from './api/ongkir/ongkir.module';
-import { WhatsAppModule } from './api/whatsapp/whatsapp.module';
 
 import { ConfigModule } from '@nestjs/config';
-import { WhatsAppService } from './api/whatsapp/whatsapp.service';
 
 @Module({
   imports: [
@@ -22,9 +20,8 @@ import { WhatsAppService } from './api/whatsapp/whatsapp.service';
     PaymentModule,
     SuggestionModule,
     OngkirModule,
-    WhatsAppModule
   ],
   controllers: [AppController],
-  providers: [AppService, WhatsAppService],
+  providers: [AppService],
 })
 export class AppModule {}
