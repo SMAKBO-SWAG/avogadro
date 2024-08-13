@@ -18,21 +18,21 @@ ENV PORT=$PORT
 ENV ONGKIR_URL=$ONGKIR_URL
 ENV ONGKIR_API_KEY=$ONGKIR_API_KEY
 
-RUN apt-get update \
-    && apt-get install -y \
-    libnss3 \
-    libx11-xcb-dev \
-    libgbm-dev \
-    libatk1.0-0 \
-    libxss1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libxshmfence1 \
-    libxtst6 \
-    xauth \
-    xvfb \
-    --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update \
+#     && apt-get install -y \
+#     libnss3 \
+#     libx11-xcb-dev \
+#     libgbm-dev \
+#     libatk1.0-0 \
+#     libxss1 \
+#     libasound2 \
+#     libatk-bridge2.0-0 \
+#     libxshmfence1 \
+#     libxtst6 \
+#     xauth \
+#     xvfb \
+#     --no-install-recommends \
+#     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g @nestjs/cli
 
@@ -41,8 +41,6 @@ WORKDIR /app
 COPY . /app
 
 RUN npm install
-
-RUN npm install puppeteer
 
 RUN npm run build
 
