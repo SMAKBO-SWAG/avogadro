@@ -20,23 +20,8 @@ ENV ONGKIR_API_KEY=$ONGKIR_API_KEY
 
 RUN npm install -g @nestjs/cli
 
-# RUN apt-get update && apt-get install -y \
-#     libasound2 \
-#     libatk-bridge2.0-0 \
-#     libatk1.0-0 \
-#     libcups2 \
-#     libdbus-1-3 \
-#     libx11-xcb1 \
-#     libxcomposite1 \
-#     libxdamage1 \
-#     libxrandr2 \
-#     libgbm1 \
-#     libgtk-3-0 \
-#     libpango-1.0-0 \
-#     libpangocairo-1.0-0 \
-#     libxshmfence1 \
-#     libnss3 \
-#     xdg-utils
+RUN apt-get update && apt-get install -y \
+    libnss3
 
 WORKDIR /app
 
