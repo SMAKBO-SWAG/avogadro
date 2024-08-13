@@ -19,8 +19,6 @@ export class OrdersService {
       return error;
     }
 
-    console.log(order);
-
     const createWhatsAppMessage = (payload : Order) => {
       let orderDetails = payload.orders
         .map((order : Product, index : number) => {

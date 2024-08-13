@@ -3,6 +3,8 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { Client, LocalAuth } from 'whatsapp-web.js';
 
+var qrcode = require('qrcode-terminal');
+
 @Injectable()
 export class WhatsAppService implements OnModuleInit {
   private client: Client;
@@ -17,6 +19,7 @@ export class WhatsAppService implements OnModuleInit {
 
     this.client.on('qr', (qr) => {
       console.log('QR RECEIVED', qr);
+      qrcode.generate(qr, { small: true });
     });
 
     this.client.on('ready', () => {
