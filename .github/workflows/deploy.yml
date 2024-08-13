@@ -54,7 +54,8 @@ jobs:
       - name: Deploy to GCP
         run: |
           ssh -o StrictHostKeyChecking=no -i ssh-key.pem "${{ secrets.GCP_VM_USERNAME }}"@"${{ secrets.GCP_VM_IP }}" "
-            sudo docker pull "${{ secrets.DOCKER_USERNAME }}/avogadro-app:latest"
             sudo docker stop avogadro-app-container || true
             sudo docker rm avogadro-app-container || true
+            sudo docker rmi "${{ secrets.DOCKER_USERNAME }}/avogadro-app:latest" || true
+            sudo docker pull "${{ secrets.DOCKER_USERNAME }}/avogadro-app:latest"
             sudo docker run -d --name avogadro-app-container -p 8000:8000 "${{ secrets.DOCKER_USERNAME }}/avogadro-app:latest""
