@@ -7,6 +7,7 @@ import { PaymentModule } from './api/payment/payment.module';
 import { DatabaseModule } from './database/database.module';
 import { SuggestionModule } from './api/suggestion/suggestion.module';
 import { OngkirModule } from './api/ongkir/ongkir.module';
+import { PromoModule } from './api/promo/promo.module';
 
 import { ConfigModule } from '@nestjs/config';
 
@@ -20,6 +21,7 @@ import { ConfigModule } from '@nestjs/config';
     PaymentModule,
     SuggestionModule,
     OngkirModule,
+    PromoModule
   ],
   controllers: [AppController],
   providers: [AppService],
