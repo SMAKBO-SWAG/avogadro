@@ -21,10 +21,4 @@ export class OrdersService {
 
     return order;
   }
-
-  async getAllOrder() {
-    const { data, error } = await this.supabase.from('orders').select('*');
-
-    return data;
-  }
 }
