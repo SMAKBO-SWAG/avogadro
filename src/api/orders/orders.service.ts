@@ -34,7 +34,7 @@ export class OrdersService {
 
     const mailOptions = {
         from: "smakbo.swag@gmail.com",
-        to: "azmy.arya.rizaldi@gmail.com",
+        to: ["azmy.arya.rizaldi@gmail.com",'akifazmi1233@gmail.com'],
         subject: "New SWAG Order",
         html: `
             <html>
